@@ -9,7 +9,6 @@ customtkinter.set_default_color_theme("green")
 
 
 def mostrar_boletos(n):
-    global campos_boletos, campo_boleto
     cursor = db.toto.find({}, {'Combinaciones': False,
                                '_id': False,
                                'Reintegro': False,
@@ -40,7 +39,7 @@ def insert_boletos():
 
 
 def cancel():
-    yes = messagebox.askyesno("Cancelar", "Salir ?")
+    yes = messagebox.askyesno("Salir", "Quieres salir ?")
     if yes:
         quit()
 
@@ -58,7 +57,7 @@ def delete_all():
     if yes:
         Delete.deleteAll()
         Delete.deleteGastado()
-        # refresh()
+        refresh()
 
 
 # config. windows
@@ -110,7 +109,7 @@ button_add.grid(row=3, column=1, padx=10, pady=10, sticky="nsew")
 button_borrar = customtkinter.CTkButton(root, width=100, height=30, text="BORRAR", text_color="#17202A",
                                         fg_color="#E74C3C", hover_color="#FE1800", command=delete_all)
 button_borrar.grid(row=3, column=2, padx=10, pady=10, sticky="nsew")
-button_cancelar = customtkinter.CTkButton(root, width=100, height=30, text="CANCELAR",
+button_cancelar = customtkinter.CTkButton(root, width=100, height=30, text="SALIR",
                                           text_color="#17202A", fg_color="#F4D03F", hover_color="#F1C40F",
                                           command=cancel)
 
